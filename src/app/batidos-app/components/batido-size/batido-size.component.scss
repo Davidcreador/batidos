@@ -1,0 +1,130 @@
+:host,
+.batido-size {
+  display: flex;
+  width: 100%;
+}
+
+.batido-size {
+  &__item {
+    margin: 0 0 20px;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+    flex: 0 0 33%;
+    height: 80px;
+    position: relative;
+    padding: 29px 0 0 100px;
+
+    input {
+      border: 0;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+
+    &--active {
+      color: #1a98e1;
+      font-weight: 400;
+
+      .batido-size__plate {
+        background: #f3f3f3;
+        border: 3px solid darken(#f3f3f3, 10%);
+      }
+
+      .batido-size__batido__line {
+        background: #f3f3f3;
+      }
+    }
+
+    &--focused {
+      .batido-size__plate {
+        background: darken(#f3f3f3, 10%);
+        border: 3px solid darken(#f3f3f3, 20%);
+      }
+    }
+  }
+
+  &__plate {
+    top: 50%;
+    left: 10px;
+    position: absolute;
+    border: 3px solid transparent;
+    padding: 6px;
+    transform: translate3d(0, -50%, 0);
+    border-radius: 50%;
+  }
+
+  &__batido {
+    background: #f8685e;
+    border: 2px solid #deb989;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    position: relative;
+    &__line {
+      background: #fff;
+      width: 2px;
+      height: 62px;
+      position: absolute;
+      left: 27px;
+      transform: rotate(0deg);
+      transform-origin: center;
+      top: -3px;
+
+      &:before,
+      &:after {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        content: ' ';
+        position: absolute;
+        background: #deb989;
+      }
+
+      &:before {
+        left: 18px;
+        top: 20px;
+      }
+      &:after {
+        right: 18px;
+        bottom: 20px;
+      }
+    }
+    &--pequeno {
+      height: 40px;
+      width: 40px;
+      .batido-size__batido__line {
+        height: 42px;
+        left: 17px;
+        &:before {
+          left: 7px;
+          top: 10px;
+        }
+        &:after {
+          right: 7px;
+          bottom: 10px;
+        }
+      }
+    }
+    &--mediano {
+      height: 50px;
+      width: 50px;
+      .batido-size__batido__line {
+        height: 52px;
+        left: 22px;
+        &:before {
+          left: 15px;
+          top: 23px;
+        }
+        &:after {
+          right: 15px;
+          bottom: 23px;
+        }
+      }
+    }
+  }
+}
